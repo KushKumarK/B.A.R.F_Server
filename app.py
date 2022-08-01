@@ -10,6 +10,7 @@ actions = ["LIFO",
            "Remote Control"]
 
 
+
 @app.route('/', methods=['GET', 'POST'])
 def get_data():  # put application's code here
     data = request.get_json(force=True)
