@@ -41,11 +41,17 @@ def delete_data():
         if (actions.index(delData["action"])<6):
             return "Permission Denied"
         else:
+            send_data()
             del(actions[int(delData["index"])])
             return "Deleted successfully"
     else:
-        del (actions[int(delData["index"])])
-        return "Deleted successfully"
+        try:
+            del (actions[int(delData["index"])])
+            send_data()
+            return "Deleted successfully"
+        except IndexError:
+            send_data()
+            return "Encountered error, Delete Successful"
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=8000, debug=True)
